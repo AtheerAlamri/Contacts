@@ -14,30 +14,30 @@ contact_list = {
 def add_contact(name, number):
     if number.isnumeric() and len(number) == 10:
         contact_list.update({name: int(number)})
-        print("\033[32mThe contact has been added successfully!\033[00m\n")
+        print("The contact has been added successfully!\n")
     else:
-        print("\033[91mThis is invalid number\033[00m\n")
+        print("This is invalid number\n")
 
 
 def search_contact(info):
     if info.isnumeric() and len(info) == 10:
         name = [key for key, value in contact_list.items() if value == info]
-        print("\033[32mFound it, the {} contact name is: {}\033[00m\n".format(info, name))
+        print("Found it, the {} contact name is: {}\n".format(info, name))
     elif info.isalpha():
         number = contact_list.get(info)
-        print("\033[32mFound it, the {}'s contact number is : {}\033[00m\n".format(info, number))
+        print("Found it, the {}'s contact number is : {}\n".format(info, number))
     else:
-        print("\033[91mSorry, the number is not found!\033[00m\n")
+        print("Sorry, the number is not found!\n")
 
 
 def all_contact():
-    print("\033[32mContacts: {}\033[00m\n".format(json.dumps(contact_list, sort_keys=False, indent=4)))
+    print("Contacts: {}\n".format(json.dumps(contact_list, sort_keys=False, indent=4)))
 
 
 if __name__ == '__main__':
 
-    print("\033[93m------------------------------------------\n"
-          "   >>>   Welcome to contacts   <<<\033[00m\n")
+    print("------------------------------------------\n"
+          "   >>>   Welcome to contacts   <<<n")
 
     while True:
         print("1 -> Search\n2 -> Add\n3 -> Browse contact\n4 -> Exit\n")
@@ -52,28 +52,28 @@ if __name__ == '__main__':
             elif choice == 3:
                 all_contact()
             elif choice == 4:
-                print("\n\033[93m Thank you \n"
-                      "\033[01m>>> Bye <<<\033[00m")
+                print(" Thank you \n"
+                      ">>> Bye <<<")
                 break
 
             start = True
 
             while start:
 
-                ans = input("\033[34m>>> Do you want another service? <<<\n"
-                            ">>>           Y/N ? \033[00m")
+                ans = input(">>> Do you want another service? <<<\n"
+                            ">>>           Y/N ? ")
 
                 if ans in ['n', 'N', 'No', 'no', 'NO']:
                     start = False
-                    print("\n\033[93m Thank you \n"
-                          "\033[01m>>> Bye <<<\033[00m")
+                    print(" Thank you \n"
+                          ">>> Bye <<<")
                     exit()
                 elif ans in ['y', 'Y', 'Yes', 'yes', 'YES']:
                     start = False
                     continue
                 else:
                     start = True
-                    print("\n\033[91m ... Wrong answer try again!...\033[00m\n")
+                    print("\n ... Wrong answer try again!...\n")
 
         else:
-            print("\n\033[91m ... WRONG CHOICE!! Please try again!...\033[00m\n")
+            print(" ... WRONG CHOICE!! Please try again!...\n")
